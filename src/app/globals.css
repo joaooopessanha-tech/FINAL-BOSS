@@ -1,0 +1,160 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* Tema Escuro (padrão) */
+:root,
+html.dark {
+  --color-primary: #1a1a2e;
+  --color-secondary: #16213e;
+  --color-accent: #0f3460;
+  --text-primary: #e4e4e7;
+  --text-secondary: #a1a1a1;
+  --border-color: rgba(237, 197, 63, 0.2);
+}
+
+/* Tema Claro */
+html.light {
+  --color-primary: #f8f8f8;
+  --color-secondary: #ebebeb;
+  --color-accent: #d8d8d8;
+  --text-primary: #1a1a2e;
+  --text-secondary: #4a4a4a;
+  --border-color: rgba(237, 197, 63, 0.3);
+}
+
+body {
+  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 50%, var(--color-accent) 100%);
+  background-attachment: fixed;
+  color: var(--text-primary);
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Estilos específicos para tema claro */
+html.light {
+  color-scheme: light;
+}
+
+html.light * {
+  color: inherit;
+}
+
+html.light h1,
+html.light h2,
+html.light h3,
+html.light h4,
+html.light h5,
+html.light h6 {
+  color: var(--text-primary);
+}
+
+html.light p,
+html.light span,
+html.light div,
+html.light a {
+  color: var(--text-primary);
+}
+
+html.light input,
+html.light textarea,
+html.light select {
+  background-color: #f0f0f0;
+  color: var(--text-primary);
+  border-color: #d0d0d0;
+}
+
+html.light input::placeholder,
+html.light textarea::placeholder {
+  color: #888;
+}
+
+html.light button {
+  color: inherit;
+}
+
+/* Classes específicas para slate no tema claro */
+html.light .text-slate-300,
+html.light .text-slate-400,
+html.light .text-slate-500 {
+  color: #555 !important;
+}
+
+html.light .text-slate-200 {
+  color: #333 !important;
+}
+
+html.light .bg-slate-800,
+html.light .bg-slate-800\/50 {
+  background-color: #e8e8e8 !important;
+  color: var(--text-primary) !important;
+}
+
+html.light .bg-slate-700,
+html.light .bg-slate-700\/60 {
+  background-color: #d5d5d5 !important;
+}
+
+html.light .border-slate-600,
+html.light .border-slate-700 {
+  border-color: #ccc !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Scrollbar estilizado */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-accent);
+}
+
+::-webkit-scrollbar-thumb {
+  background: #edc53f;
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #f0d960;
+}
+
+/* Animações customizadas */
+@keyframes shimmer {
+  0% {
+    background-position: -1000px 0;
+  }
+  100% {
+    background-position: 1000px 0;
+  }
+}
+
+.animate-shimmer {
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0),
+    rgba(255, 255, 255, 0.2),
+    rgba(255, 255, 255, 0)
+  );
+  background-size: 1000px 100%;
+  animation: shimmer 2s infinite;
+}
